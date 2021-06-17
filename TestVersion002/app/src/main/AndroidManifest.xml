@@ -20,26 +20,5 @@
             </intent-filter>
         </activity>
     </application>
-    int permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
 
-    if (permissionStatus == PackageManager.PERMISSION_GRANTED) {
-    readContacts();
-    } else {
-    ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS},
-    REQUEST_CODE_PERMISSION_SEND_SMS);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-    switch (requestCode) {
-    case REQUEST_CODE_PERMISSION_SEND_SMS:
-    if (grantResults.length > 0 AND grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-    // permission granted
-    readContacts();
-    } else {
-    // permission denied
-    }
-    return;
-    }
-    }
 </manifest>
